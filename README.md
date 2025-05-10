@@ -1,6 +1,17 @@
 # Java_Project
 
- Placement Management System is a Java Swing and MySQL-based desktop 
+** Problem Statement **
+
+The placement process in most educational institutions is still handled manually 
+using spreadsheets, emails, and notice boards. This leads to inefficiencies such as 
+scheduling conflicts, delayed updates, and poor coordination between students, 
+professors, and the Training & Placement Office (TPO). Students lack a centralized 
+system to view eligible companies or track application status. Professors face 
+difficulties in accessing schedules or booking classrooms. TPOs struggle with 
+managing applications, updating statuses, and planning test schedules. Manual 
+handling also results in redundant data and overlapping bookings. There is a need for 
+a role-based, automated system that integrates placement activities into a unified 
+platform with real-time access, reduced errors, and improved operational efficiency. Placement Management System is a Java Swing and MySQL-based desktop 
 application designed to streamline the college placement process for students, 
 professors, and the Training & Placement Office (TPO). The system ensures 
 efficient management of lectures, extra activities, company interactions, and student 
@@ -8,6 +19,7 @@ applications.
 
 The application supports role-based logins for Students, Professors, and TPOs, 
 each with a dedicated dashboard: 
+
 1.) Student Dashboard allows viewing lecture schedules, extra activities, 
 applying to companies based on CGPA, and tracking application status. 
 
