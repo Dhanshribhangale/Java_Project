@@ -10,9 +10,11 @@ The application supports role-based logins for Students, Professors, and TPOs,
 each with a dedicated dashboard: 
 1.) Student Dashboard allows viewing lecture schedules, extra activities, 
 applying to companies based on CGPA, and tracking application status. 
+
 2.)Professor Dashboard offers a personalized class schedule view, access to 
 classroom bookings on a given day, the ability to book extra activities, and 
 access to company test details. 
+
 3.) TPO Dashboard manages company records, updates student applications, 
 handles classroom bookings for placement tests, and auto-generates test 
 schedules based on shortlisted students. 
