@@ -1,0 +1,60 @@
+show databases;
+use placement;
+CREATE TABLE users (
+  user_id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  role ENUM('STUDENT','PROFESSOR','TPO') NOT NULL
+);
+
+CREATE TABLE student_details (
+  student_id INT PRIMARY KEY,
+  branch VARCHAR(50),
+  cgpa DECIMAL(3,2),
+  FOREIGN KEY (student_id) REFERENCES users(user_id)
+);
+
+CREATE TABLE classrooms (
+  classroom_id INT AUTO_INCREMENT PRIMARY KEY,
+  room_number VARCHAR(10) NOT NULL UNIQUE,
+  capacity INT NOT NULL
+);
+
+CREATE TABLE schedule (
+  schedule_id INT AUTO_INCREMENT PRIMARY KEY,
+  professor_id INT NOT NULL,
+  classroom_id INT NOT NULL,
+  day ENUM('Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'),
+  start_time TIME NOT NULL,
+  end_time TIME NOT NULL,
+  FOREIGN KEY (professor_id) REFERENCES users(user_id),
+  FOREIGN KEY (classroom_id) REFERENCES classrooms(classroom_id)
+);
+
+CREATE TABLE bookings (
+  booking_id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  classroom_id INT NOT NULL,
+  purpose VARCHAR(255),
+  start_time DATETIME NOT NULL,
+  end_time DATETIME NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(user_id),
+  FOREIGN KEY (classroom_id) REFERENCES classrooms(classroom_id)
+);
+
+CREATE TABLE companies (
+  company_id INT AUTO_INCREMENT PRIMARY KEY,
+  company_name VARCHAR(100) NOT NULL,
+  min_cgpa DECIMAL(3,2) NOT NULL,
+  visit_date DATE NOT NULL
+);
+
+CREATE TABLE applications (
+  application_id INT AUTO_INCREMENT PRIMARY KEY,
+  student_id INT NOT NULL,
+  company_id INT NOT NULL,
+  status ENUM('APPLIED','SHORTLISTED','REJECTED','PLACED') DEFAULT 'APPLIED',
+  FOREIGN KEY (student_id) REFERENCES users(user_id),
+  FOREIGN KEY (company_id) REFERENCES companies(company_id)
+);
